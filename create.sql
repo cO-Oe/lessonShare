@@ -1,0 +1,17 @@
+USE lessonShare;
+
+CREATE TABLE IF NOT EXISTS `User` (
+	`Id` INT NOT NULL AUTO_INCREMENT,
+	`CreateTime` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+	`Account` VARCHAR(50) NOT NULL,
+	`Password` VARCHAR(50) NOT NULL,
+	`Name` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+	`Email` VARCHAR(105) NOT NULL,
+	`Quota` INT DEFAULT 0 NOT NULL,
+	`AvatarLink` VARCHAR(80),
+	`Signature` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+	`Gender` INT NOT NULL,
+	PRIMARY KEY (`Id`), 
+	UNIQUE (`Account`), 
+	UNIQUE (`Email`)	
+);
