@@ -1,9 +1,13 @@
 <html>
 
 	<head>
-		hello
+
+	</head>
+	<body>
 		<?php
 			echo "hello2";
+			$a = "hee";
+			echo $a;
 		?>
-	</head>
+	</body>
 </html>
