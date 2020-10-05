@@ -7,7 +7,7 @@
 	if(isset($_SESSION['userId'])){
 		$nowTimeDel = time() - $_SESSION['userTimestamp'];
 		// echo time()." - ".$_SESSION['userTimestamp'];
-		if($nowTimeDel > 900){
+		if($nowTimeDel > 9000000){
 			logout();
 		}
 		else{
