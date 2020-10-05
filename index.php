@@ -16,8 +16,23 @@
 
 	<body>
 
-		<div class="container-fluid">
-			index
+		<div class="container-fluid" style="min-height:50vh;">
+			<div class="row justify-content-md-center" style="height:100%;">
+				<div class="col-3 center" style="margin:auto;">
+					<h1>
+						Hello
+						<?php
+							if($log_status == 1){
+								echo $_SESSION["name"];
+							}
+							else {
+								echo " Guest";
+							}
+						?>
+					</h1>
+
+				</div>
+			</div>
 		</div>
 
 	</body>

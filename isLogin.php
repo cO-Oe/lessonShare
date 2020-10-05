@@ -2,9 +2,11 @@
 	session_start();
 	$member = "";
 	$log_status = 0;
-	include_once('./php/logout.php');
+	include_once('/tools/logout.php');
+	// echo json_encode($_SESSION);
 	if(isset($_SESSION['userId'])){
 		$nowTimeDel = time() - $_SESSION['userTimestamp'];
+		// echo time()." - ".$_SESSION['userTimestamp'];
 		if($nowTimeDel > 900){
 			logout();
 		}
@@ -27,6 +29,6 @@
 
 		// **** unread message
 	}
-	**** online user
+	// **** online user
 
 ?>

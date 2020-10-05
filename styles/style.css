@@ -1,0 +1,32 @@
+html{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	background-color: #efe4b0 !important;
+	/*background-image: url("/images/bg1.jpg");*/
+	/*background-size: 100% 100%;*/
+	/*background-attachment: fixed;*/
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.transparentButton{
+	background-color: transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}

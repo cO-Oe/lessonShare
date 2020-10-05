@@ -1,7 +1,7 @@
 <?php
 	include_once('main.php');
 	include_once('isLogin.php');
-	include_once('php/logout.php');
+	include_once('tools/logout.php');
 
 	if ($log_status !== 0) {
 		logout();
