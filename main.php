@@ -1,6 +1,6 @@
 <?php
 	include ('config.php');
-	include_once('isLogin.php');
+	// include_once('isLogin.php');
 ?>
 
 <title>Lesson Share</title>
