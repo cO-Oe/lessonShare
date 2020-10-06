@@ -11,7 +11,8 @@
 			</div>
 
 			<div class="col-3 offset-1 centerCol center">
-				Upload
+				<a class="headerA" href="lessonUpload.php">Upload
+				</a>
 			</div>
 
 			<div class="col-3 centerCol center">

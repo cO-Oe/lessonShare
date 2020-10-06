@@ -67,7 +67,7 @@
 
 					<div class="row justify-content-md-center formRow" >
 						<div class="col-8">
-							<button class="btn btn-Success"  type="submit" placeholder="Email" style="width:100%; font-size: 150%;">Submit</button>
+							<button class="btn btn-Success"  type="submit" style="width:100%; font-size: 150%;">Submit</button>
 						</div>
 					</div>
 
