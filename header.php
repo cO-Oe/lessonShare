@@ -16,7 +16,9 @@
 			</div>
 
 			<div class="col-3 centerCol center">
-				Browse
+				<a class="headerA" href="browse.php">
+					Browse
+				</a>
 			</div>
 
 			<div class="col-3 centerCol center">

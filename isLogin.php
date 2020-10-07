@@ -23,8 +23,8 @@
 	}
 	if(isset($_SESSION['userId'])){
 		$userId = $_SESSION['userId'];
-		$member = $_SESSION['username'];
-		$nickname = $_SESSION['nickname'];
+		$account = $_SESSION['account'];
+		$username = $_SESSION['name'];
 		$log_status = 1;
 
 		// **** unread message
