@@ -23,31 +23,31 @@
 		  	$link = mysqli_connect(db_host, db_user, db_password, db_name);
 		  	
 
-		  	$sql = "SHOW TABLE STATUS LIKE 'Lessons'";
-		  	echo $sql."<br/>";
-
-		  	$nextId = 1;
-
-		  	if($result = mysqli_query($link, $sql)) {
-		  		$row = $result->fetch_assoc();
-		  		echo json_encode($row);
-		  		$nextId = $row['Auto_increment'];
-		  	}
-		  	else {
-		  		header("Location: error.php?status=102");
-		  	} // sometime got bug when auto_increment crash
-
-		  	// $sql = "select count(*) from `Lessons`";
+		  	// $sql = "SHOW TABLE STATUS LIKE 'Lessons'";
+		  	// echo $sql."<br/>";
 
 		  	// $nextId = 1;
+
 		  	// if($result = mysqli_query($link, $sql)) {
 		  	// 	$row = $result->fetch_assoc();
-		  	// 	// echo json_encode($row);
-		  	// 	$nextId = $row["count(*)"]+1;
+		  	// 	echo json_encode($row);
+		  	// 	$nextId = $row['Auto_increment'];
 		  	// }
 		  	// else {
 		  	// 	header("Location: error.php?status=102");
-		  	// }
+		  	// } // sometime got bug when auto_increment crash
+
+		  	$sql = "select count(*) from `Lessons`";
+
+		  	$nextId = 1;
+		  	if($result = mysqli_query($link, $sql)) {
+		  		$row = $result->fetch_assoc();
+		  		// echo json_encode($row);
+		  		$nextId = $row["count(*)"]+1;
+		  	}
+		  	else {
+		  		header("Location: error.php?status=102");
+		  	}
 
 		  	$file = $_FILES['file']['tmp_name'];
 		  	$dest = "pdf/".$nextId.".pdf";
@@ -66,21 +66,20 @@
 
 		  	if($result = mysqli_query($link, $sql)) {
 
-		  		$sql = "UPDATE `Users` SET `Quota` = `Quota` - 1 WHERE `Id` = ". $user["Id"];
+		  		$sql = "UPDATE `Users` SET `Quota` = `Quota` + 1 WHERE `Id` = ". $userId;
 
 				if($result = mysqli_query($link, $sql)) {
+					header("Location: index.php?status=111");
+		  			exit(0);
 				}
 				else {
-					$arr["error"] = "SQL error when cost quota";
-					echo json_encode($arr);
+					header("error.php?status=105");
 					exit(0);
 				}
-		  		
-		  		header("Location: index.php?status=111");
-		  		exit(0);
 		  	}
 		  	else {
-		  		// header("Location: error.php?status=102");
+		  		header("Location: error.php?status=102");
+		  		exit(0);
 		  	}
 
 

@@ -1,8 +1,31 @@
 <?php
+	$arr = array();
+	
+	function forceDownload($filename) {
+		$arr['filename'] = $filename;
+		if (false == file_exists($filename)) {
+			return false;
+		}
+		$arr['check1'] = 1;
+
+		// http headers
+		header('Content-Type: application-x/force-download');
+		header('Content-Disposition: attachment; filename="' . basename($filename) .'"');
+		header('Content-length: ' . filesize($filename));
+
+		// for IE6
+		if (false === strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 6')) {
+		header('Cache-Control: no-cache, must-revalidate');
+		}
+		header('Pragma: no-cache');
+
+		// read file content and output
+		return readfile($filename);;
+	}
+
 	include_once ('config.php');
 	include_once ('isLogin.php');
 	if($_SERVER["REQUEST_METHOD"] === "POST") {
-		$arr = array();
 
 		if($log_status == 0) {
 			$arr["error"] = "Not Login Yet!";
@@ -49,7 +72,7 @@
 			exit(0);
 		}
 
-		if($lesson["UserId"] == $user["UserId"]) {
+		if($lesson["UserId"] == $user["Id"]) {
 			$arr["error"] = "That is your lesson!";
 			echo json_encode($arr);
 			exit(0);
@@ -84,6 +107,11 @@
 		
 		// force download
 
+		// forceDownload($lesson["Src"]);
+		$arr["src"] = $lesson["Src"];
+		$arr["name"] = $lesson["Name"] + ".pdf";
+
+		$arr["quota"] = $user["Quota"]-1;
 		echo json_encode($arr);
 		exit(0);
 
