@@ -34,7 +34,7 @@
 		  		$nextId = $row['Auto_increment'];
 		  	}
 		  	else {
-		  		header("Location: error.php?stauts=102");
+		  		header("Location: error.php?status=102");
 		  	} // sometime got bug when auto_increment crash
 
 		  	// $sql = "select count(*) from `Lessons`";
@@ -63,8 +63,21 @@
 		  	$sql = "INSERT INTO `Lessons` (`UserId`, `UserName`, `Name`, `Status`, `Src`, `Note`) VALUES (" . $userId . ", '".$username."' , '".$_POST["Name"]."', 1, '".$dest."', '".$_POST["Note"]."')";
 		  	echo $sql;
 
+
 		  	if($result = mysqli_query($link, $sql)) {
+
+		  		$sql = "UPDATE `Users` SET `Quota` = `Quota` - 1 WHERE `Id` = ". $user["Id"];
+
+				if($result = mysqli_query($link, $sql)) {
+				}
+				else {
+					$arr["error"] = "SQL error when cost quota";
+					echo json_encode($arr);
+					exit(0);
+				}
+		  		
 		  		header("Location: index.php?status=111");
+		  		exit(0);
 		  	}
 		  	else {
 		  		// header("Location: error.php?status=102");
@@ -74,6 +87,7 @@
 		}
 		else {
 			header("Location: lessonUpload.php?status=101");
+			exit(0);
 		}
 	}
 	else {
