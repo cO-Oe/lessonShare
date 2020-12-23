@@ -39,7 +39,7 @@
 
 					alert("Success! Your last quota is " + data["quota"]);
 				}
-				// location.reload();
+				location.reload();
 			}).fail(function(jqXHR, textStatus, errorThrown) {
 				console.log("error!",textStatus,errorThrown);
 				console.log("XHR: ",jqXHR);
