@@ -34,13 +34,13 @@
 
 					<div class="row justify-content-md-center form-group formRow mt-5">
 						<div class="col-10">
-							<input class="center loginInput w-75" name="Name" type="text" placeholder="Lesson Name"/>
+							<input class="form-control center loginInput w-75" name="Name" type="text" placeholder="Lesson Name"/>
 						</div>
 					</div>
 
 					<div class="row justify-content-md-center form-group formRow mt-4">
 						<div class="col-10">
-							<input class="center loginInput w-75" name="Note" type="text" placeholder="Note"/>
+							<input class="form-control center loginInput w-75" name="Note" type="text" placeholder="Note"/>
 						</div>
 					</div>
 
