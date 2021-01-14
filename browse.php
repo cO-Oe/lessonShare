@@ -48,74 +48,76 @@
 	</script>
 
 	<body>
-		<div class="container" style="min-height:60%;">
-			<h1 style="text-align:center; margin: auto; margin-top:5%;">
-				Lesson List
-			</h1>
-			<?php
-				if($log_status != 0):
-			?>
-			<h2 style="text-align:center; margin: auto; margin-top:5%;">
-				Your Quota:
+		<div class="container">
+			<div class="jumbotron my-5 py-3 bg-white">
+				<h1 class="center mt-5">
+					Lesson List
+				</h1>
 				<?php
-					$link = mysqli_connect(db_host, db_user, db_password, db_name);
-					$sql = "SELECT * FROM `Users` WHERE `Id` = ".$userId;
-					if($result = mysqli_query($link, $sql)) {
-						if(mysqli_num_rows($result) != 1) {
-							header("Location: error.php?status=106");
+					if($log_status != 0):
+				?>
+				<h5 class="float-right my-3">
+					Your Quota:
+					<?php
+						$link = mysqli_connect(db_host, db_user, db_password, db_name);
+						$sql = "SELECT * FROM `Users` WHERE `Id` = ".$userId;
+						if($result = mysqli_query($link, $sql)) {
+							if(mysqli_num_rows($result) != 1) {
+								header("Location: error.php?status=106");
+								exit(0);
+							}
+							$user = mysqli_fetch_assoc($result);
+						}
+						else {
+							header("Location: error.php?status=102");
 							exit(0);
 						}
-						$user = mysqli_fetch_assoc($result);
-					}
-					else {
-						header("Location: error.php?status=102");
-						exit(0);
-					}
-					echo " ".$user["Quota"];
-				?>
-			</h2>
-			<?php
-				endif;
-			?>
-			<table class="tabler table-striped" style="text-align:center; font-size:200%; margin: auto; margin-top:5%;">
-				<thead>
-					<th scope="col" style="width:10%;">ID</th>
-					<th scope="col" style="width:25%;">Author</th>
-					<th scope="col" style="width:25%">Lesson Name</th>
-					<th scope="col" style="width:20%;">Download Time</th>
-					<th scope="col" style="width:10%;"></th>
-
-				</thead>
-				<tbody>
-					<?php
-						
-
-							$sql = "select * from `Lessons`";
-
-							$data = array();
-
-							if($result = mysqli_query($link, $sql)) {
-								while($row = $result->fetch_assoc()) {
-									// echo json_encode($row);
-									array_push($data,$row);
-								}
-							}
-							else {
-								header("Location: error.php?status=102");
-							}
-							foreach($data as $row){
-								echo "<tr>";
-								echo "<th scope=\"row\">".$row["Id"]."</th>";
-								echo "<td>".$row["UserName"]."</td>";
-								echo "<td>".$row["Name"]."</td>";
-								echo "<td>".$row["DownloadTime"]."</td>";
-								echo "<td><button type=\"button\" onclick=\"downloadPdf(". $row["Id"] .")\">Download</button></td>"; 
-								echo "</tr>";
-							}
+						echo " ".$user["Quota"];
 					?>
+				</h2>
+				<?php
+					endif;
+				?>
+				<table class="table my-4">
+					<thead class="theader text-white">
+						<th scope="col" style="width:10%;">ID</th>
+						<th scope="col" style="width:25%;">Author</th>
+						<th scope="col" style="width:25%">Lesson Name</th>
+						<th scope="col" style="width:25%;">Download Time</th>
+						<th scope="col" style="width:5%;"></th>
 
-				</tbody>
-			</table>
+					</thead>
+					<tbody>
+						<?php
+							
+
+								$sql = "select * from `Lessons`";
+
+								$data = array();
+
+								if($result = mysqli_query($link, $sql)) {
+									while($row = $result->fetch_assoc()) {
+										// echo json_encode($row);
+										array_push($data,$row);
+									}
+								}
+								else {
+									header("Location: error.php?status=102");
+								}
+								foreach($data as $row){
+									echo "<tr>";
+									echo "<th scope=\"row\">".$row["Id"]."</th>";
+									echo "<td>".$row["UserName"]."</td>";
+									echo "<td>".$row["Name"]."</td>";
+									echo "<td>".$row["DownloadTime"]."</td>";
+									echo "<td><button class=\"btn bg-primary text-white shadow-sm\" type=\"button\" onclick=\"downloadPdf(". $row["Id"] .")\">Download</button></td>"; 
+									echo "</tr>";
+								}
+						?>
+
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</body>
 
@@ -126,8 +128,19 @@
 </html>
 
 <style type="text/css">
-	table, th, td {
-	  border: 1px solid black;
-	  border-collapse: collapse;
+	table {
+		text-align:center; 
+		font-size:125%; 
+		margin: auto; 
+	}
+	.theader {
+		background-color: #53B685;
+		color: white;
+	}
+	.container {
+		min-height: 60%;
+	}
+	.theader {
+		color: black;
 	}
 </style>

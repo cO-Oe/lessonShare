@@ -13,9 +13,9 @@
 	?>
 
 	<body>
-		<div class="container" style="min-height:30%;">
-			<div class="jumbotron loginBox">
-				<form method="POST" action="registerPost.php" style="height: 100%">
+		<div class="container">
+			<div class="jumbotron bg-white my-5">
+				<form method="POST" action="registerPost.php" class="h-100">
 
 					<div class="row justify-content-md-center">
 						<div class="col-6 center">
@@ -23,51 +23,58 @@
 						</div>
 					</div>
 
-					<div class="row justify-content-md-center formRow" >
-						<div class="col-10">
-							<input class="roundRect center loginInput" name="Account" type="text" placeholder="Account"/ autofocus>
+					<div class="row  justify-content-md-center form-group formRow mt-5" >
+						<label for="Account" class="col-1 col-form-label right px-0">Account</label>
+						<div class="col-11">
+							<input class="form-control center loginInput w-75" id="Account" name="Account" type="text" placeholder="Account"/ autofocus>
 						</div>
 					</div>
 
-					<div class="row justify-content-md-center formRow">
-						<div class="col-10">
-							<input class="roundRect center loginInput" name="Password" type="password" placeholder="Password"/>
+					<div class="row justify-content-md-center form-group formRow mt-0">
+						<label for="Password" class="col-1 col-form-label right px-0">Password</label>
+						<div class="col-11">
+							<input class="form-control center loginInput w-75" name="Password" type="password" placeholder="Password"/>
 						</div>
 					</div>
 
-					<div class="row justify-content-md-center formRow">
-						<div class="col-10">
-							<input class="roundRect center loginInput" name="Verify" type="password" placeholder="Verify Password"/>
+					<div class="row justify-content-md-center form-group formRow mt-0">
+						<label for="Verify" class="col-1 col-form-label right px-0">Verify</label>
+						<div class="col-11">
+							<input class="form-control center loginInput w-75" name="Verify" type="password" placeholder="Verify Password"/>
 						</div>
 					</div>
 
-					<div class="row justify-content-md-center formRow" >
-						<div class="col-10">
-							<input class="roundRect center loginInput" name="Name" type="text" placeholder="Name"/ >
+					<div class="row justify-content-md-center form-group formRow mt-0" >
+						<label for="Name" class="col-1 col-form-label right px-0">Name</label>
+						<div class="col-11">
+							<input class="form-control center loginInput w-75" name="Name" type="text" placeholder="Name"/ >
 						</div>
 					</div>
 
-					<div class="row justify-content-md-center formRow" >
-						<div class="col-10">
-							<input class="roundRect center loginInput" name="School" type="text" placeholder="School Name"/ >
+					<div class="row justify-content-md-center form-group formRow mt-0" >
+						<label for="School" class="col-1 col-form-label right px-0">School</label>
+						<div class="col-11">
+							<input class="form-control center loginInput w-75" name="School" type="text" placeholder="School Name"/ >
 						</div>
 					</div>
 
-					<div class="row justify-content-md-center formRow" >
-						<div class="col-10">
-							<input class="roundRect center loginInput" name="JobTitle" type="text" placeholder="Job Title"/ >
+					<div class="row justify-content-md-center form-group formRow mt-0" >
+						<label for="JobTitle" class="col-1 col-form-label right px-0">JobTitle</label>
+						<div class="col-11">
+							<input class="form-control center loginInput w-75" name="JobTitle" type="text" placeholder="Job Title"/ >
 						</div>
 					</div>
 
-					<div class="row justify-content-md-center formRow" >
-						<div class="col-10">
-							<input class="roundRect center loginInput" name="Email" type="text" placeholder="Email"/ >
+					<div class="row justify-content-md-center form-group formRow mt-0" >
+						<label for="Email" class="col-1 col-form-label right px-0">Email</label>
+						<div class="col-11">
+							<input class="form-control center loginInput w-75" name="Email" type="text" placeholder="Email"/ >
 						</div>
 					</div>
 
-					<div class="row justify-content-md-center formRow" >
+					<div class="row justify-content-md-center form-group formRow mt-5" >
 						<div class="col-8">
-							<button class="btn btn-Success"  type="submit" style="width:100%; font-size: 150%;">Submit</button>
+							<button class="btn btn-primary w-100 shadow"  type="submit">Submit</button>
 						</div>
 					</div>
 
@@ -83,27 +90,24 @@
 
 </html>
 
+
 <style type="text/css">
-	.loginBox{
-		background-color: rgba(35, 90, 126, 0.7);
-		margin-top: 5%;
+	.container {
+		min-height: 30%;
 	}
-	.roundRect{
-		height: 15%;
-		width: 80%;
-		margin: auto;
-		/*border-radius: 10%;*/
-		border-color: #FFFFFF;
-		background-color: rgba(35,90,126,0.7);
-		color: white;
+	.jumbotron {
+		padding-left: 20%;
+		padding-right: 20%;
 	}
 	.loginInput{
-		height:100%;
-		font-size: 24px;
+		height:75%;
+		font-size: 18px;
+		text-align: left;
 	}
 	.formRow {
 		height:8%;
-		/*padding-top: 10%;*/
-		margin-top:4%;
+	}
+	.btn {
+		font-size: 150%;
 	}
 </style>
