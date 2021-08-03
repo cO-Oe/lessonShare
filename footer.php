@@ -1,10 +1,10 @@
-<header style="min-height:10%;">
-	<div class="container-fluid footBar1" style="height:10%;">
-		<div class="row justify-content-md-center">
-			<div class="col-4">
+<header>
+	<div class="container-fluid footBar1">
+		<div class="row align-items-center h-100">
+			<div class="col-3 offset-2 center">
 				Develop by NCTU-GCEC
 			</div>
-			<div class="col-2">
+			<div class="col-3 center">
 				Contact us
 			</div>
 		</div>
@@ -12,11 +12,15 @@
 </header>
 
 <style type="text/css">
+	header {
+		min-height:10%;
+	}
 	.footBar1 {
 		width: 100%;
-		height: 5vh;
-		background-color: #AAAAAA;
-		font-size: 150%;
-		font-weight: bold;
+		height:10%;
+		background-color: black;
+		font-size: 120%;
+		font-weight: 300;
+		color: white;
 	}
 </style>

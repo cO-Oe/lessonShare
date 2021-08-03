@@ -17,9 +17,9 @@
 	<body>
 
 		<div class="container-fluid" style="min-height:50vh;">
-			<div class="row justify-content-md-center" style="height:100%;">
+			<div class="row justify-content-md-center h-100">
 				<div class="col-3 center" style="margin:auto;">
-					<h1>
+					<h1 style="color:white;">
 						Hello
 						<?php
 							if($log_status == 1){

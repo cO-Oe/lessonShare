@@ -18,11 +18,11 @@
 			exit(0);
 		}
 	?>
-
+	
 	<body>
-		<div class="container" style="min-height:30%;">
-			<div class="jumbotron loginBox">
-				<form method="POST" enctype="multipart/form-data" action="lessonUploadPost.php" style="height: 50%">
+		<div class="container">
+			<div class="jumbotron my-5 bg-white">
+				<form method="POST" enctype="multipart/form-data" action="lessonUploadPost.php" class="h-50">
 
 					<div class="row justify-content-md-center formRow">
 						<div class="col-6 center">
@@ -32,27 +32,36 @@
 						</div>
 					</div>
 
-					<div class="row justify-content-md-center formRow">
+					<div class="row justify-content-md-center form-group formRow mt-5">
 						<div class="col-10">
-							<input class="roundRect center loginInput" name="Name" type="text" placeholder="Lesson Name"/>
+							<input class="form-control center loginInput w-75" name="Name" type="text" placeholder="Lesson Name"/>
 						</div>
 					</div>
 
-					<div class="row justify-content-md-center formRow">
+					<div class="row justify-content-md-center form-group formRow mt-4">
 						<div class="col-10">
-							<input class="roundRect center loginInput" name="Note" type="text" placeholder="Note"/>
+							<input class="form-control center loginInput w-75" name="Note" type="text" placeholder="Note"/>
 						</div>
 					</div>
 
-					<div class="row justify-content-md-center formRow">
-						<div class="col-10 center">
-							<input class="roundRect center loginInput" name="file" type="file"/>
+					<div class="row justify-content-md-center form-group formRow mt-4 md-2">
+						<div class="col-6 center">
+							<div class="custom-file">
+								<input type="file" class="custom-file-input" name="file" id="file" required>
+								<label class="custom-file-label" for="file">Choose file</label>
+							</div>
 						</div>
+						<script>
+							$('input[type="file"]').change(function(e){
+								var fileName = e.target.files[0].name;
+								$('.custom-file-label').html(fileName);
+							});
+						</script>
 					</div>
 
-					<div class="row justify-content-md-center formRow">
+					<div class="row justify-content-md-center form-group formRow mt-5">
 						<div class="col-8 center">
-							<button class="btn btn-Success" type="submit"  style="width:100%; font-size:150%;">Submit</button>
+							<button class="btn btn-Primary w-75 shadow" type="submit">Submit</button>
 						</div>
 					</div>
 				</form>
@@ -67,26 +76,23 @@
 </html>
 
 <style type="text/css">
-	.loginBox{
-		background-color: rgba(35, 90, 126, 0.7);
-		margin-top: 5%;
+	.container {
+		min-height: 30%;
 	}
-	.roundRect{
-		height: 15%;
-		width: 80%;
-		margin: auto;
-		/*border-radius: 10%;*/
-		border-color: #FFFFFF;
-		background-color: rgba(35,90,126,0.7);
-		color: white;
+	.jumbotron {
+		padding-left: 10%;
+		padding-right: 10%;
 	}
 	.loginInput{
 		height:100%;
-		font-size: 24px;
+		font-size: 18px;
+		text-align: left;
+		padding: 1%;
 	}
 	.formRow {
 		height:12%;
-		/*padding-top: 10%;*/
-		margin-top:4%;
+	}
+	.btn {
+		font-size: 150%;
 	}
 </style>

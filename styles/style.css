@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap");
+
 html{
 	margin: 0;
 	padding: 0;
@@ -8,11 +10,26 @@ body{
 	padding: 0;
 	margin: 0;
 	width: 100%;
-	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-	background-color: #efe4b0 !important;
+	/* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
+	font: 14px "Lato", "Segoe UI", "Tahoma", "Geneva", "Verdana", "sans-serif";
+	background: transparent
+	radial-gradient(
+	circle at 34% -8%,
+	#2c3e50 0%,
+	#233241 26%,
+	#202d3a 34%,
+	#19232e 58%,
+	#090c10 100%
+	)
+	0% 0% no-repeat padding-box;
+	/* background-color: white !important; */
 	/*background-image: url("/images/bg1.jpg");*/
 	/*background-size: 100% 100%;*/
 	/*background-attachment: fixed;*/
+}
+
+h1 {
+	color: white;
 }
 
 .center {
@@ -30,3 +47,4 @@ body{
     overflow: hidden;
     outline:none;
 }
+

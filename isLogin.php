@@ -15,7 +15,7 @@
 		}
 
 	}
-
+	console.log("Hi");
 	$link = mysqli_connect(db_host, db_user, db_password, db_name);
 	if (!$link) {
 		header('Location: error.php?error_code=102');

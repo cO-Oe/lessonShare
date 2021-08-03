@@ -1,54 +1,65 @@
-<header style="min-height:10%;">
-	<div class="container-fluid topBar1">
+<header>
+	<div class="container-fluid topBarA w-100 bg-white">
+		<div class="row align-items-center h-100">
+			<div class="col-2 offset-2 left">
+				<a href="/">
+					<img src="./assets/logo.png">
+				</a>
+			</div>
+			<div class="col-8 left">
+				<p class="banner"> Lessonshare Platform </p>
+			</div>
+		</div>
 	</div>
 
-	<div class="container-fluid topBar2">
-		<div class="row align-items-center" style="height:100%">
-			<div class="col-2 centerCol center">
+	<div class="container-fluid topBarB w-100">
+		<div class="row align-items-center h-100">
+			<div class="col-1 offset-4 center">
 				<a class="headerA" href="/">
-					Logo
+					Home
 				</a>
 			</div>
 
-			<div class="col-3 offset-1 centerCol center">
-				<a class="headerA" href="lessonUpload.php">Upload
+			<div class="col-1 center">
+				<a class="headerA" href="lessonUpload.php">
+					Upload
 				</a>
 			</div>
 
-			<div class="col-3 centerCol center">
+			<div class="col-1 center">
 				<a class="headerA" href="browse.php">
 					Browse
 				</a>
 			</div>
 
-			<div class="col-3 centerCol center">
-				<div class="row" style="width:100%;">
+			<div class="col-4 center">
+				<div class="row w-100">
 
 					<?php
 						if($log_status == 0):
 					?>
-						<div class="col-6 centerCol center">
-							<a class="headerA" href="login.php">
+						<div class="col-2 offset-8 center">
+							<a class="headerP" href="login.php">
 								Login
 							</a>
 						</div>
-						<div class="col-6 centerCol center">
-							<a class="headerA" href="register.php">
+						<div class="col-2 center">
+							<a class="headerP" href="register.php">
 								Register
 							</a>
 						</div>
 					<?php
 						else:
 					?>
-						<div class="col-6 centerCol center">
+						<div class="col-2 offset-8 center">
 							<p class="headerP">
 								<?php
 									echo $_SESSION["name"];
 								?>
 							</p>
 						</div>
-						<div class="col-6 centerCol center">
-							<a class="headerA" href="logout.php">
+						<div class="col-2 center">
+							<a class="headerP" href="logout.php">
 								Logout
 							</a>
 						</div>
@@ -63,34 +74,35 @@
 </header>
 
 <style type="text/css">
-	.topBar1 {
-		width: 100%;
-		height: 3vh;
-		background-color: #6266D5
+	header {
+		min-height: 10%;
 	}
-	.topBar2 {
-		width: 100%;
-		height: 15vh;
-		background-color: #888888;
+	.topBarA {
+		height: 20vh;
+	}
+	.topBarB {
+		background-color: black;
 		font-size: 150%;
-		font-weight: 1000;
+		font-weight: 400;
+		height: 8vh;
 	}
-	.centerCol {
-		height: 100%;
-		margin: auto;
-		text-align: center;
+	.banner {
+		font-size: 300%;
+		font-weight: 500;
 	}
 	.headerA {
-		color: black;
+		color: white;
 		text-align: center;
 		margin: auto;
-	}
-	.headerA:hover {
-		color: white;
 	}
 	.headerP{
-		color: black;
+		color: white;
 		text-align: center;
 		margin: auto;
+		font-size: 80%;
+		font-weight: 200;
+	}
+	.headerA:hover, .headerP:hover {
+		color: #0d6efd;
 	}
 </style>
